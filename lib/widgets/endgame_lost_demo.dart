@@ -20,7 +20,6 @@ class _EndgameLostDemoState extends State<EndgameLostDemo>{
     _images = ImageMap(rootBundle);
     _images.load([
       'assets/images/particle-2.png',
-      'assets/images/white-star.png',
     ]).then((List<ui.Image> images) {
       setState(() => _loaded = true);
     });
@@ -54,7 +53,16 @@ class _EndgameLostDemoState extends State<EndgameLostDemo>{
 
     final gameLostScene = Stack(
       children: [
-        Center(child: Text('Game Over', style: TextStyle(fontFamily: 'LuckiestGuy', fontSize: 48, color: Color(0xFFc5060b))),),
+        Center(
+          child: Text(
+              'Game Over',
+              style: TextStyle(
+                  fontFamily: 'LuckiestGuy',
+                  fontSize: 48,
+                  color: Color(0xFFc5060b)
+              )
+          ),
+        ),
         SpriteWidget(widget),
       ],
     );

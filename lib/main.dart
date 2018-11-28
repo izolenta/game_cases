@@ -15,9 +15,9 @@ class MyApp extends StatelessWidget {
       ),
       home:  Material(
         type: MaterialType.transparency,
-//        child: EndgameLostDemo(),
+        child: EndgameLostDemo(),
 //        child: EndgameWonDemo(),
-          child: FlutterGhostAnimation(),
+//          child: FlutterGhostAnimation(),
       )
     );
   }
