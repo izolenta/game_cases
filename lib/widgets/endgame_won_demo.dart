@@ -23,7 +23,6 @@ class _EndgameWonDemoState extends State<EndgameWonDemo>{
     _images = ImageMap(rootBundle);
     _images.load([
       'assets/images/particle-2.png',
-      'assets/images/white-star.png',
     ]).then((List<ui.Image> images) {
       setState(() => _loaded = true);
     });
@@ -42,13 +41,13 @@ class _EndgameWonDemoState extends State<EndgameWonDemo>{
           life: 0.5,
           lifeVar: 0.2,
           posVar: ui.Offset(0, 0),
-          startSize: 0.4,
+          startSize: 0.6,
           startSizeVar: 0.19,
-          endSize: 0.1,
+          endSize: 0.3,
           startRotationVar: 90.0,
           direction: 0.0,
           directionVar: 360,
-          speed: 500,
+          speed: 300,
           speedVar: 50,
           maxParticles: 200,
           emissionRate: 1700,
@@ -80,6 +79,6 @@ class _EndgameWonDemoState extends State<EndgameWonDemo>{
 
   void _setUpInitialTimer() {
     setState(() {});
-    new Timer(Duration(milliseconds: ((rand.nextInt(7)+5) * 100)), _setUpInitialTimer);
+    new Timer(Duration(milliseconds: ((rand.nextInt(700)+500))), _setUpInitialTimer);
   }
 }

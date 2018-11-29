@@ -10,8 +10,6 @@ class EndgameLostDemo extends StatefulWidget {
 
 class _EndgameLostDemoState extends State<EndgameLostDemo>{
 
-  final distance = 200;
-
   ImageMap _images;
   bool _loaded = false;
 
@@ -35,7 +33,7 @@ class _EndgameLostDemoState extends State<EndgameLostDemo>{
           life: 5,
           lifeVar: 0,
           posVar: ui.Offset(400, 0),
-          startSize: 0.3,
+          startSize: 0.4,
           endSize: 0.2,
           startRotationVar: 90.0,
           direction: 90.0,
