@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:game_cases/widgets/endgame_lost_demo.dart';
 import 'package:game_cases/widgets/endgame_won_demo.dart';
 import 'package:game_cases/widgets/flutter_ghost_animation.dart';
+import 'package:game_cases/widgets/spritewidget_cat_animation.dart';
 
 void main() => runApp(new MyApp());
 
@@ -15,9 +16,10 @@ class MyApp extends StatelessWidget {
       ),
       home:  Material(
         type: MaterialType.transparency,
-        child: EndgameLostDemo(),
+//        child: EndgameLostDemo(),
 //        child: EndgameWonDemo(),
-//          child: FlutterGhostAnimation(),
+//        child: FlutterGhostAnimation(),
+        child: SpriteWidgetCatAnimation(),
       )
     );
   }

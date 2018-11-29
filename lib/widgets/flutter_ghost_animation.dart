@@ -29,6 +29,7 @@ class _FlutterGhostAnimationState
         curve: Curves.bounceOut);
     animation = Tween(begin: 0.0, end: 128.0).animate(curve)
       ..addListener(() => setState(() {}));
+    controller.forward();
   }
 
 
