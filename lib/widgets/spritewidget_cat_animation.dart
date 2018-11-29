@@ -8,25 +8,34 @@ class SpriteWidgetCatAnimation extends StatefulWidget {
 }
 
 class _SpriteWidgetCatAnimationState extends State<SpriteWidgetCatAnimation> {
-  NodeWithSize rootNode;
-  Sprite cat;
-  VirtualJoystick joystick;
+  MyScene rootNode;
 
   @override
   void initState() {
     super.initState();
-    ImageMap images = ImageMap(rootBundle);
+    rootNode = MyScene(const Size(800, 800));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SpriteWidget(rootNode);
+  }
+}
+
+class MyScene extends NodeWithSize {
+  Sprite cat;
+  VirtualJoystick joystick;
+
+  MyScene(Size size) : super(size) {
     joystick = VirtualJoystick();
     joystick.position = Offset(400, 800);
-    rootNode = NodeWithSize(const Size(800, 800));
-    rootNode.addChild(joystick);
+    this.addChild(joystick);
 
-    joystick.
-
+    ImageMap images = ImageMap(rootBundle);
     images.loadImage('assets/images/cat.png').then((image) {
       cat = Sprite.fromImage(image);
       cat.position = Offset(400, 400);
-      rootNode.addChild(cat);
+      this.addChild(cat);
 
       ActionTween down = ActionTween<Offset> (
               (a) => cat.position = a,
@@ -36,13 +45,33 @@ class _SpriteWidgetCatAnimationState extends State<SpriteWidgetCatAnimation> {
           Curves.bounceOut
       );
       cat.actions.run(down);
-      setState(() {});
+
+      ActionTween shrink = ActionTween<double> (
+          (a) => cat.scale = a,
+          1,
+          0.8,
+          0.5,
+          Curves.easeInOut
+      );
+      ActionTween grow = ActionTween<double> (
+              (a) => cat.scale = a,
+          0.8,
+          1,
+          0.5,
+          Curves.easeInOut
+      );
+      ActionSequence breath = ActionSequence([shrink, grow]);
+      cat.actions.run(ActionRepeatForever(breath));
     });
 
   }
 
   @override
-  Widget build(BuildContext context) {
-    return SpriteWidget(rootNode);
+  void update(double dt) {
+    final dx = joystick.value.dx * 10;
+    final dy = joystick.value.dy * 10;
+    if (cat != null) {
+      cat.position += Offset(dx, dy);
+    }
   }
 }
