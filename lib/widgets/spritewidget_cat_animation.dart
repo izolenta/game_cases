@@ -33,11 +33,20 @@ class MyScene extends NodeWithSize {
       cat.position = Offset(400, 400);
       this.addChild(cat);
 
-      ActionTween down = ActionTween<Offset> (
+      final down = ActionTween<Offset> (
                 (a) => cat.position = a, const Offset(400, 100), const Offset(400, 500), 1, Curves.bounceOut);
 
       cat.actions.run(down);
 
+      final grow = ActionTween<double> (
+              (a) => cat.scale = a, 0.8, 1, 0.5, Curves.easeInOut);
+
+      final shrink = ActionTween<double> (
+              (a) => cat.scale = a, 1, 0.8, 0.5, Curves.easeInOut);
+
+      final group = ActionRepeatForever(ActionSequence([grow, shrink]));
+
+      cat.actions.run(group);
     });
   }
 }
