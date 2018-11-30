@@ -24,9 +24,12 @@ class _FlutterGhostAnimationState
     controller = AnimationController(
         duration: const Duration(milliseconds: 1000),
         vsync: this);
+
     final curved = CurvedAnimation(parent: controller, curve: Curves.bounceOut);
+
     animation = Tween(begin: 0.0, end: 128.0).animate(curved)
       ..addListener(() => setState(() {}));
+
     controller.forward();
   }
 
@@ -36,12 +39,17 @@ class _FlutterGhostAnimationState
 
     final image = Image.asset(
         'assets/images/ghost.png',
-       width: animation.value,
-       height: animation.value
+       width: 128,
+       height: 128
     );
 
-    final widget = Center(
-      child: image,
+    final widget = Stack(
+        children: <Widget>[
+          Positioned(
+              child: image,
+              top: 100+animation.value,
+              left: 134,
+          ),]
     );
 
     return GestureDetector(
