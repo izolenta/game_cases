@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:game_cases/widgets/endgame_lost_demo.dart';
 import 'package:game_cases/widgets/endgame_won_demo.dart';
-import 'package:game_cases/widgets/fire_drill.dart';
+import 'package:game_cases/widgets/spritewidget_fire_drill.dart';
 import 'package:game_cases/widgets/flutter_ghost_animation.dart';
 import 'package:game_cases/widgets/spritewidget_cat_animation.dart';
 

@@ -40,10 +40,10 @@ class _EndgameLostDemoState extends State<EndgameLostDemo>{
           directionVar: 0,
           speed: 300,
           speedVar: 100,
-          maxParticles: 300,
-          emissionRate: 350,
-          colorSequence: ColorSequence([Color(0x30ffffff)], [0.0]),
-          numParticlesToEmit: 300,
+          maxParticles: 700,
+          emissionRate: 700,
+          colorSequence: ColorSequence([Color(0x20ffffff)], [0.0]),
+          numParticlesToEmit: 700,
           gravity: ui.Offset(0.0, 900.0),
       );
       widget.addChild(particles);

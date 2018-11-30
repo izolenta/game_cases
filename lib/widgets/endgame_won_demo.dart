@@ -38,28 +38,30 @@ class _EndgameWonDemoState extends State<EndgameWonDemo>{
     if (_loaded) {
       ParticleSystem particles = new ParticleSystem(
           SpriteTexture(_images['assets/images/particle-2.png']),
-          life: 0.5,
+          life: 0.8,
           lifeVar: 0.2,
           posVar: ui.Offset(0, 0),
           startSize: 0.6,
-          startSizeVar: 0.19,
-          endSize: 0.3,
+          startSizeVar: 0.0,
+          endSize: 0.0,
           startRotationVar: 90.0,
           direction: 0.0,
           directionVar: 360,
-          speed: 300,
+          speed: 200,
           speedVar: 50,
-          maxParticles: 200,
+          maxParticles: 300,
           emissionRate: 1700,
           colorSequence: ColorSequence([Color(0x30ffffff)], [0.0]),
           alphaVar: 30,
           redVar: 175,
           greenVar: 175,
           blueVar: 175,
-          numParticlesToEmit: 200,
+          numParticlesToEmit: 300,
           gravity: ui.Offset(0.0, 250.0),
       );
-      particles.position = ui.Offset(rand.nextInt(400).ceilToDouble(), rand.nextInt(400).ceilToDouble());
+      particles.position = ui.Offset(
+          rand.nextDouble() * 300 + 50,
+          rand.nextDouble() * 200 + 50);
       widget.addChild(particles);
     }
 
@@ -79,6 +81,6 @@ class _EndgameWonDemoState extends State<EndgameWonDemo>{
 
   void _setUpInitialTimer() {
     setState(() {});
-    new Timer(Duration(milliseconds: ((rand.nextInt(700)+500))), _setUpInitialTimer);
+    new Timer(Duration(milliseconds: ((rand.nextInt(700)+800))), _setUpInitialTimer);
   }
 }
