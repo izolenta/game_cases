@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       ),
       home:  Material(
         type: MaterialType.transparency,
-        child: FlutterGhostAnimation(),
+        child: SpriteWidgetCatAnimation(),
       )
     );
   }
