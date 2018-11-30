@@ -25,10 +25,19 @@ class _FlutterGhostAnimationState
         duration: const Duration(milliseconds: 1000),
         vsync: this);
 
-    final curved = CurvedAnimation(parent: controller, curve: Curves.bounceOut);
+    final curved = CurvedAnimation(parent: controller, curve: Curves.easeInOut);
 
-    animation = Tween(begin: 0.0, end: 128.0).animate(curved)
-      ..addListener(() => setState(() {}));
+    animation = Tween(begin: 0.0, end: 128.0).animate(curved);
+
+    animation.addListener(() {
+      setState(() {});
+      if (animation.isCompleted) {
+        controller.reverse();
+      }
+      else if (animation.isDismissed) {
+        controller.forward();
+      }
+    });
 
     controller.forward();
   }
