@@ -24,16 +24,22 @@ class _SpriteWidgetCatAnimationState extends State<SpriteWidgetCatAnimation> {
 
 class MyScene extends NodeWithSize {
   Sprite cat;
+  VirtualJoystick joystick;
 
   MyScene(Size size) : super(size) {
 
     ImageMap images = ImageMap(rootBundle);
     images.loadImage('assets/images/cat.png').then((image) {
+
+      joystick = VirtualJoystick();
+      joystick.position = Offset(400, 750);
+      this.addChild(joystick);
+
       cat = Sprite.fromImage(image);
       cat.position = Offset(400, 400);
       this.addChild(cat);
 
-      final down = ActionTween<Offset> (
+      final down = ActionTween<Offset> (/**/
                 (a) => cat.position = a, const Offset(400, 100), const Offset(400, 500), 1, Curves.bounceOut);
 
       cat.actions.run(down);
@@ -49,4 +55,12 @@ class MyScene extends NodeWithSize {
       cat.actions.run(group);
     });
   }
+
+  @override
+  void update(double dt) {
+    if (cat != null) {
+      cat.position += Offset(joystick.value.dx * 10, joystick.value.dy * 10);
+    }
+  }
+
 }
