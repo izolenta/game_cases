@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       ),
       home:  Material(
         type: MaterialType.transparency,
-        child: SpriteWidgetCatAnimation(),
+        child: FireDrill(),
       )
     );
   }

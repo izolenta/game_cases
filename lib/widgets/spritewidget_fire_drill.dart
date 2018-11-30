@@ -81,7 +81,7 @@ class _FireDrillState extends State<FireDrill>{
 
       particles2.position = Offset(0, -10);
       particles2.zPosition = -100;
-      rootNode.addChild(particles2);
+      //rootNode.addChild(particles2);
     });
     super.initState();
 
