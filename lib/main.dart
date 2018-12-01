@@ -17,7 +17,15 @@ class MyApp extends StatelessWidget {
       ),
       home:  Material(
         type: MaterialType.transparency,
-        child: FireDrill(),
+
+//          uncomment each to see effect
+
+            child: FireDrill(),
+//          child: EndgameLostDemo(),
+//          child: EndgameWonDemo(),
+//          child: FlutterGhostAnimation(),
+//          child: SpriteWidgetCatAnimation(),
+
       )
     );
   }
